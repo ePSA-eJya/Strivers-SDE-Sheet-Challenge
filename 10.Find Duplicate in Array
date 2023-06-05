@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+int findDuplicate(vector<int> &a, int n){
+	map<int,int>m;
+	int b[n-1]={0};
+	for(int i=0;i<n;i++)
+	{
+		
+		if(b[a[i]-1]==1)
+		{
+			return a[i];
+			break;
+		}b[a[i]-1]++;
+	}
+	// for(it:m)
+	// cout<<it.first<<" "<<it.second<<endl;
+
+}
