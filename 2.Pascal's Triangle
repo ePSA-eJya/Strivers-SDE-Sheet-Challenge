@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define pb push_back
+void f(int n,int j,vector<vector<long long int>>&ans)
+{
+  vector<long long int>v;
+  if(j==n)
+  {
+    for(int i=1;i<=j;i++)
+    {
+      if(i==1||i==j)
+      v.pb(1);
+      else {
+        v.pb(ans[j - 2][i-2] + ans[j - 2][i - 1]);
+      }
+    }
+    ans.pb(v);
+    return;
+  }
+  for(int i=1;i<=j;i++)//1->3
+  {
+    if(i==1||i==j)//i=2
+    v.pb(1);
+    else // ans[1]={1 1}
+    {
+      v.pb(ans[j-2][i-1]+ans[j-2][i-2]);
+    }
+  }
+  ans.pb(v);
+  f(n,j+1,ans);
+  
+}
+vector<vector<long long int>> printPascal(int n) 
+{
+  vector<vector<long long int>>ans;
+  f(n,1,ans);
+  return ans;
+}
